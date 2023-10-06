@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "World Happiness Report (2022)",
-  "width": 700,
-  "height": 600,
+  "width": 400,
+  "height": 350,
   "data": {
     "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/4d5a2119c90c030b36c087aa4009208eb379d45d/2022_World_Happiness_Report.csv"
   },
@@ -17,7 +17,7 @@
       "domain": [0.2, 1]
     },
       "title": "Social Support",
-      "axis": {"tickCount": 6},
+      "axis": {"tickCount": 6}
 }, "y": {
       "field": "Freedom_To_Make_Life_Choices",
       "type": "quantitative",
@@ -27,7 +27,7 @@
       "domain": [0.3, 1]
     },
       "title": "Freedom To Make Life Choices",
-      "axis": {"tickCount": 6},
+      "axis": {"tickCount": 6}
     }
   },
   "layer": [
@@ -94,7 +94,7 @@
           {"field": "Regional_Indicator", "type": "nominal", "title": "Region"},
           {"field": "Social_Support", "type": "quantitative", "title": "Social Support"},
           {"field": "Freedom_To_Make_Life_Choices", "type": "quantitative", "title": "Freedom To Make Life Choices"},
-          {"field": "Log_GDP_Per_Capita", "type": "quantitative", "title": "Log GDP Per Capita"},
+          {"field": "Log_GDP_Per_Capita", "type": "quantitative", "title": "Log GDP Per Capita"}
         ]
       }
     },
