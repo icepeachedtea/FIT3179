@@ -4,7 +4,7 @@
   "width": 700,
   "height": 500,
   "data": {
-    "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/4d5a2119c90c030b36c087aa4009208eb379d45d/2022_World_Happiness_Report.csv"
+    "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/2022_World_Happiness_Report.csv"
   },
   "params": [
     {
