@@ -1,0 +1,217 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Global Comparison of Life Satisfaction: Parallel Coordinate Plot",
+    "data": {
+      "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"
+    },
+    "width": 700,
+    "height": 300,
+    "params": [
+      {
+        "name": "search_input",
+        "bind": {
+          "input": "search",
+          "placeholder": "Country name",
+          "name": "Search Country"
+        },
+        "value": ""
+      }
+    ],
+    "transform": [
+      {"window": [{"op": "count", "as": "index"}]},
+      {
+        "calculate": "datum.Healthy_Life_Expectancy_At_Birth",
+        "as": "Healthy Life Expectancy"
+      },
+      {
+        "calculate": "datum.Perceptions_Of_Corruption",
+        "as": "Perceptions of Corruption"
+      },
+      {
+        "calculate": "datum.Social_Support",
+        "as": "Social Support"
+      },
+      {
+        "calculate": "datum.Life_Ladder",
+        "as": "Life Ladder"
+      },
+      {"fold": ["Healthy Life Expectancy", "Perceptions of Corruption", "Social Support", "Life Ladder"]
+      },
+      {
+        "calculate": "format(datum.value,'.2f')",
+        "as": "rounded_value"
+      },
+      {
+        "joinaggregate": [
+          {"op": "min", "field": "rounded_value", "as": "min"},
+          {"op": "max", "field": "rounded_value", "as": "max"}
+        ],
+        "groupby": ["key"]
+      },
+      {
+        "calculate": "(datum.rounded_value - datum.min) / (datum.max-datum.min)",
+        "as": "norm_val"
+      },
+      {
+        "calculate": "format((toNumber(datum.min)+toNumber(datum.max)) / 2, '.2f')",
+        "as": "mid"
+      }
+    ],
+    "layer": [
+      {
+      "mark": {"type": "rule", "color": "#ccc"},
+      "encoding": {
+        "detail": {"aggregate": "count"},
+        "x": {
+          "field": "key",
+          "axis": {
+            "labelPadding": 10
+          }
+        }
+      }
+    }, {
+      "params": [
+          {
+            "name": "continent_highlight",
+            "select": {
+              "type": "point",
+              "fields": ["Regional_Indicator"]
+            },
+            "bind": "legend"
+          }
+        ],
+      "mark": "line",
+      "encoding": {
+        "color": {"type": "nominal", "field": "Regional_Indicator", "title": "Region",
+        "scale": {
+              "domain": [
+                "North America and ANZ",
+                "Latin America and Caribbean",
+                "Central and Eastern Europe",
+                "Middle East and North Africa",
+                "South Asia",
+                "Commonwealth of Independent States",
+                "Western Europe",
+                "Sub-Saharan Africa",
+                "Southeast Asia",
+                "East Asia"
+              ],
+              "range": [
+                "#800026",
+                "#984ea3",
+                "#ff7f00",
+                "#120c95",
+                "#377eb8",
+                "#a65628",
+                "#2ca25f",
+                "#fc4e2a",
+                "#004529",
+                "#e7298a"
+              ]
+            }
+        },
+        "detail": {"type": "nominal", "field": "index"},
+        "opacity": {
+          "condition": {
+            "test": {
+              "and": [
+                {"param": "continent_highlight"},
+                "test(regexp(search_input, 'i'), datum.Country_Name)"
+              ]
+            },
+            "value": 0.5
+          },
+          "value": 0.1},
+        "x": {"type": "nominal", "field": "key"},
+        "y": {
+          "type": "quantitative", 
+          "field": "norm_val", 
+          "axis": null
+        },
+        "tooltip": [
+          {
+            "type": "nominal",
+            "field": "Country_Name",
+            "title": "Country"
+          },
+          {
+            "type": "quantitative",
+            "field": "Healthy_Life_Expectancy_At_Birth",
+            "title": "Healthy Life Expectancy"
+          }, 
+          {
+            "type": "quantitative",
+            "field": "Life_Ladder",
+            "title": "Life Ladder"
+          }, 
+          {
+            "type": "quantitative",
+            "field": "Perceptions_Of_Corruption",
+            "title": "Perceptions of Corruption"
+          }, 
+          {
+            "type": "quantitative",
+            "field": "Social_Support",
+            "title": "Social Support"
+          }
+        ]
+      }
+    }, 
+    {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 0}
+      },
+      "layer": [
+        {
+        "mark": {"type": "text", "style": "label"},
+        "encoding": {
+          "text": {"aggregate": "max", "field": "max"}
+        }
+      }, {
+        "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+      }]
+    }, {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 150}
+      },
+      "layer": [{
+        "mark": {"type": "text", "style": "label"},
+        "encoding": {
+          "text": {"aggregate": "min", "field": "mid"}
+        }
+      }, {
+        "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+      }] 
+    }, {
+      "encoding": {
+        "x": {
+          "type": "nominal", 
+          "field": "key"
+          },
+        "y": {"value": 300}
+      },
+      "layer": [{
+        "mark": {"type": "text", "style": "label"},
+        "encoding": {
+          "text": {"aggregate": "min", "field": "min"}
+        }
+      }, {
+        "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+      }]
+    }],
+    "config": {
+      "axisX": {
+        "domain": false, 
+        "labelAngle": 0, 
+        "tickColor": "#ccc", 
+        "title": null},
+      "view": {"stroke": null},
+      "style": {
+        "label": {"baseline": "middle", "align": "right", "dx": -5},
+        "tick": {"orient": "horizontal"}
+      }
+    }
+  }
+  
