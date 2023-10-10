@@ -1,44 +1,70 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "World Happiness Report (2022)",
-  "width": 400,
-  "height": 350,
+  "title": "Global Life Satisfaction and Well-Being: Bubble Plot",
+  "width": 700,
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/4d5a2119c90c030b36c087aa4009208eb379d45d/2022_World_Happiness_Report.csv"
   },
-  
+  "params": [
+    {
+      "name": "Log_GDP_Per_Capita_above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "name": "Minimum Log GDP Per Capita: " 
+      }
+    },
+    {
+      "name": "search_input",
+      "bind": {
+        "input": "search",
+        "placeholder": "Country",
+        "name": "Search Country"
+      },
+      "value": ""
+    }
+  ],
+  "transform": [
+      {"filter": "datum.Log_GDP_Per_Capita >= Log_GDP_Per_Capita_above"}
+  ],
   "encoding": {
     "x": {
       "field": "Social_Support",
       "type": "quantitative",
-      "scale": 
-      {
-      "type": "linear",
-      "domain": [0.2, 1]
-    },
+      "scale": {
+        "type": "linear",
+        "domain": [0.2, 1]
+      },
       "title": "Social Support",
       "axis": {"tickCount": 6}
-}, "y": {
+    }, 
+    "y": {
       "field": "Freedom_To_Make_Life_Choices",
       "type": "quantitative",
-      "scale": 
-      {
-      "type": "linear",
-      "domain": [0.3, 1]
-    },
+      "scale": {
+        "type": "linear",
+        "domain": [0.3, 1]
+      },
       "title": "Freedom To Make Life Choices",
       "axis": {"tickCount": 6}
     }
   },
   "layer": [
     {
-      "selection": {
-        "continent_highlight": {
-          "type": "multi",
-          "fields": ["Regional_Indicator"],
+      "params": [
+        {
+          "name": "continent_highlight",
+          "select": {
+            "type": "point",
+            "fields": ["Regional_Indicator"]
+          },
           "bind": "legend"
-        } 
-      },
+        }
+      ],
       "mark": "circle",
       "encoding": {
         "size": {
@@ -72,7 +98,7 @@
               "#800026",
               "#984ea3",
               "#ff7f00",
-              "#a6cee3",
+              "#120c95",
               "#377eb8",
               "#a65628",
               "#2ca25f",
@@ -82,9 +108,14 @@
             ]
           }
         },
-        "opacity": {
+        "opacity": { 
           "condition": {
-            "selection": "continent_highlight",
+            "test": {
+              "and": [
+                {"param": "continent_highlight"},
+                "test(regexp(search_input,'i'),datum.Country_Name)"
+              ]
+            },
             "value": 0.6
           },
           "value": 0.2
@@ -103,7 +134,7 @@
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "dx": -12,
+        "dx": -15,
         "fontSize": 11.5,
         "fontStyle": "italic"
       },
@@ -112,18 +143,32 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country_Name'] == 'Denmark' || datum['Country_Name'] == 'Uganda' || datum['Country_Name'] == 'Australia' || datum['Country_Name'] == 'Croatia' || datum['Country_Name'] == 'India' ||  datum['Country_Name'] == 'Malaysia' || datum['Country_Name'] == 'Madagascar'",
+            "test": "datum['Country_Name'] == 'Denmark' || datum['Country_Name'] == 'Jordan' || datum['Country_Name'] == 'Australia' || datum['Country_Name'] == 'Croatia' || datum['Country_Name'] == 'India' ||  datum['Country_Name'] == 'Malaysia' || datum['Country_Name'] == 'Madagascar'",
             "value": 1
           },
             "value": 0
-        },
-        "tooltip": [
-          {"field": "Country_Name", "type": "nominal", "title": "Country"},
-          {"field": "Regional_Indicator", "type": "nominal", "title": "Region"},
-          {"field": "Social_Support", "type": "quantitative", "title": "Social Support"},
-          {"field": "Freedom_To_Make_Life_Choices", "type": "quantitative", "title": "Freedom To Make Life Choices"},
-          {"field": "Log_GDP_Per_Capita", "type": "quantitative", "title": "Log GDP Per Capita"}
-        ]
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 15,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country_Name", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country_Name'] == 'Afghanistan'",
+            "value": 1
+          },
+            "value": 0
+        }
       }
     }
   ]
