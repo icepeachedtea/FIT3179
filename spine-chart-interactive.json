@@ -1,0 +1,116 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Global Generosity: Spine Chart",
+    "width": 800,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"
+    },
+    "transform": [
+      {
+        "aggregate": [{
+         "op": "mean",
+         "field": "Generosity",
+         "as": "mean_generosity"
+        }],
+        "groupby": ["Regional_Indicator"]
+      }
+    ],
+    "encoding": {
+      "y": {
+        "field": "Regional_Indicator",
+        "type": "nominal",
+        "title": "Region",
+        "axis": {
+          "domain": false,
+          "ticks": false,
+          "labelAngle": 0,
+          "labelPadding": 4
+        }
+      },
+      "x": {
+        "field": "mean_generosity",
+        "type": "quantitative",
+        "title": "Level of Generosity",
+        "scale": {
+          "padding": 20,
+          "domainMin": -0.16,
+          "domainMax": 0.22
+        },
+        "axis": {
+          "gridColor": {
+            "condition": {"test": "datum.value === 0", "value": "black"},
+            "value": "#ddd"
+          }
+        }
+      },
+      "color": {
+        "field": "Regional_Indicator",
+        "scale": {
+          "domain": [
+            "North America and ANZ",
+            "Latin America and Caribbean",
+            "Central and Eastern Europe",
+            "Western Europe",
+            "Middle East and North Africa",
+            "Eastern Mediterranean",
+            "Commonwealth of Independent States",
+            "Sub-Saharan Africa",
+            "East Asia",
+            "Southeast Asia",
+            "South Asia",
+            "West Asia"
+          ],
+          "range": [
+            "#800026",
+            "#984ea3",
+            "#ff7f00",
+            "#120c95",
+            "#377eb8",
+            "#a65628",
+            "#2ca25f",
+            "#fc4e2a",
+            "#004529",
+            "#e7298a",
+            "#e7298a",
+            "#e7298a"
+          ]
+        },
+        "legend": {
+          "title": "Region",
+          "titleFontSize": 12,
+          "labelFontSize": 12,
+          "rowPadding": 6
+        }
+      }
+    },
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "tooltip": [
+            {"field": "Regional_Indicator"},
+            {"field": "mean_generosity", "format": ".4f"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": {"expr": "datum.mean_generosity < 0 ? 'right' : 'left'"},
+          "dx": {"expr": "datum.mean_generosity < 0 ? -2 : 2"}
+        },
+        "encoding": {
+          "text": {
+            "field": "mean_generosity", 
+            "type": "quantitative",
+            "format": ".4f"
+          },
+          "tooltip": [
+            {"field": "Regional_Indicator"},
+            {"field": "mean_generosity"}
+          ]
+        }
+      }
+    ]
+  }

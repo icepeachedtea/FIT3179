@@ -10,6 +10,15 @@ body {
     background-color: lightgray;
 }
 
+h2 {
+    line-height: 1.25;
+}
+
+p {
+    line-height: 1.58;
+    text-align: justify;
+}
+
 .page {
     width: 1000px;
     background-color: white;
@@ -20,6 +29,7 @@ body {
 
 .vis-container {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .description h2,
@@ -36,7 +46,7 @@ h1 {
 }
 
 .pure-g {
-    margin-bottom: 40px;
+    margin-bottom: 36px;
 }
 
 .small-font {

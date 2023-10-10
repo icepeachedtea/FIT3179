@@ -4,7 +4,7 @@
     "data": {
       "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"
     },
-    "width": "container",
+    "width": 700,
     "height": 300,
     "params": [
       {
@@ -88,13 +88,15 @@
                 "North America and ANZ",
                 "Latin America and Caribbean",
                 "Central and Eastern Europe",
-                "Middle East and North Africa",
-                "South Asia",
-                "Commonwealth of Independent States",
                 "Western Europe",
+                "Middle East and North Africa",
+                "Eastern Mediterranean",
+                "Commonwealth of Independent States",
                 "Sub-Saharan Africa",
+                "East Asia",
                 "Southeast Asia",
-                "East Asia"
+                "South Asia",
+                "West Asia"
               ],
               "range": [
                 "#800026",
@@ -106,6 +108,8 @@
                 "#2ca25f",
                 "#fc4e2a",
                 "#004529",
+                "#e7298a",
+                "#e7298a",
                 "#e7298a"
               ]
             }

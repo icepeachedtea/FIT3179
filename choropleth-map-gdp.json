@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Global Happiness: Log GDP Per Capita",
-  "width": "container",
+  "width": 800,
   "height": 400,
   "projection": {"type": "equalEarth"},
   "params": [
@@ -25,26 +25,30 @@
           "North America and ANZ",
           "Latin America and Caribbean",
           "Central and Eastern Europe",
-          "Middle East and North Africa",
-          "South Asia",
-          "Commonwealth of Independent States",
           "Western Europe",
+          "Middle East and North Africa",
+          "Eastern Mediterranean",
+          "Commonwealth of Independent States",
           "Sub-Saharan Africa",
+          "East Asia",
           "Southeast Asia",
-          "East Asia"
+          "South Asia",
+          "West Asia"
         ],
         "labels": [
           "Show All",
           "North America and ANZ",
           "Latin America and Caribbean",
           "Central and Eastern Europe",
-          "Middle East and North Africa",
-          "South Asia",
-          "Commonwealth of Independent States",
           "Western Europe",
+          "Middle East and North Africa",
+          "Eastern Mediterranean",
+          "Commonwealth of Independent States",
           "Sub-Saharan Africa",
+          "East Asia",
           "Southeast Asia",
-          "East Asia"
+          "South Asia",
+          "West Asia"
         ],
         "name": "Region Selection"
       }
@@ -53,7 +57,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+        "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/ne_110m.json",
         "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
       },           
       "transform": [
@@ -93,7 +97,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
+        "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/ne_110m.json",
         "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
       },
       "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
