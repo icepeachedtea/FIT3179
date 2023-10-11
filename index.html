@@ -95,6 +95,22 @@
     </div>
     <!-- end pure grid group -->
 
+     <!-- pure grid group -->
+     <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h2>Parallel Coordinate Plot</h2>
+      </div>
+      <div class="pure-u-1-1">
+        <div id="vis4" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-1">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit pharetra cursus. Maecenas posuere elementum imperdiet. Fusce mattis varius gravida. In commodo iaculis neque, nec vehicula justo mattis id. Quisque ut ex turpis. Donec at pulvinar ipsum, eget convallis dui. Donec ornare efficitur euismod. Curabitur nec orci commodo, faucibus eros eu, ornare nisi. Proin eu egestas massa. Vestibulum vel dolor ante. Morbi sollicitudin iaculis ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Morbi sed consectetur diam, vitae feugiat mauris. Aenean elementum condimentum leo suscipit sollicitudin. Donec elementum tellus viverra erat congue tempor. Duis aliquam nulla et enim iaculis, sit amet porttitor erat dignissim. Etiam eu laoreet augue. Praesent gravida varius ullamcorper.
+        </p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
         <p>This visualisation is created by <a href="https://github.com/icepeachedtea" target="_blank">Ashley Tee</a>. The datasource is <a href="https://www.kaggle.com/datasets/usamabuttar/world-happiness-report-2005-present" target=" _blank"> World Happiness Report, 2005-Present by Usama Buttar</href>.</p>
@@ -107,6 +123,7 @@
     var specVis1 = "./bubble-plot-interactive.json";
     var specVis2 = "./choropleth-map-gdp.json";
     var specVis3 = "./parallel-coordinate-plot.json";
+    var specVis4 = "./spine-chart-interactive.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -118,9 +135,9 @@
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    // vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
-    //   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    // }).catch(console.error);
+    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
   </script>
 </body>
 
