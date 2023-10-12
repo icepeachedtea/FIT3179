@@ -1,10 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Global Life Satisfaction and Well-Being: Bubble Plot",
   "width": 700,
   "height": 500,
   "data": {
-    "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/2022_World_Happiness_Report.csv"
+    "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"
   },
   "params": [
     {
@@ -60,7 +59,7 @@
           "name": "continent_highlight",
           "select": {
             "type": "point",
-            "fields": ["Regional_Indicator"]
+            "fields": ["Continent"]
           },
           "bind": "legend"
         }
@@ -78,37 +77,27 @@
           }
         },
         "color": {
-          "field": "Regional_Indicator",
+          "field": "Continent",
           "type": "nominal",
           "title": "Region",
           "scale": {
             "domain": [
-              "North America and ANZ",
-              "Latin America and Caribbean",
-              "Central and Eastern Europe",
-              "Western Europe",
-              "Middle East and North Africa",
-              "Eastern Mediterranean",
-              "Commonwealth of Independent States",
-              "Sub-Saharan Africa",
-              "East Asia",
-              "Southeast Asia",
-              "South Asia",
-              "West Asia"
+              "North America",
+              "South America",
+              "Europe",
+              "Africa",
+              "Asia",
+              "Oceania",
+              "Middle East"
             ],
             "range": [
-              "#800026",
-              "#984ea3",
-              "#ff7f00",
-              "#120c95",
-              "#377eb8",
-              "#a65628",
-              "#2ca25f",
-              "#fc4e2a",
-              "#004529",
-              "#e7298a",
-              "#C5D86D",
-              "#4F6D7A"
+              "#f20089",
+              "#fb8500",
+              "#ffb703",
+              "#fba09d",
+              "#219ebc",
+              "#d08c60",
+              "#023047"
             ]
           }
         },
@@ -126,7 +115,7 @@
         },
         "tooltip": [
           {"field": "Country_Name", "type": "nominal", "title": "Country"},
-          {"field": "Regional_Indicator", "type": "nominal", "title": "Region"},
+          {"field": "Continent", "type": "nominal", "title": "Region"},
           {"field": "Social_Support", "type": "quantitative", "title": "Social Support", "format": ".3f"},
           {"field": "Freedom_To_Make_Life_Choices", "type": "quantitative", "title": "Freedom To Make Life Choices", "format": ".3f"},
           {"field": "Log_GDP_Per_Capita", "type": "quantitative", "title": "Log GDP Per Capita", "format": ".3f"}

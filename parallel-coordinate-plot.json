@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Global Comparison of Life Satisfaction: Parallel Coordinate Plot",
     "data": {
       "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"
     },
@@ -75,42 +74,32 @@
             "name": "continent_highlight",
             "select": {
               "type": "point",
-              "fields": ["Regional_Indicator"]
+              "fields": ["Continent"]
             },
             "bind": "legend"
           }
         ],
       "mark": "line",
       "encoding": {
-        "color": {"type": "nominal", "field": "Regional_Indicator", "title": "Region",
+        "color": {"type": "nominal", "field": "Continent", "title": "Region",
         "scale": {
               "domain": [
-                "North America and ANZ",
-                "Latin America and Caribbean",
-                "Central and Eastern Europe",
-                "Western Europe",
-                "Middle East and North Africa",
-                "Eastern Mediterranean",
-                "Commonwealth of Independent States",
-                "Sub-Saharan Africa",
-                "East Asia",
-                "Southeast Asia",
-                "South Asia",
-                "West Asia"
+               "North America",
+                "South America",
+                "Europe",
+                "Africa",
+                "Asia",
+                "Oceania",
+                "Middle East"
               ],
               "range": [
-                "#800026",
-                "#984ea3",
-                "#ff7f00",
-                "#120c95",
-                "#377eb8",
-                "#a65628",
-                "#2ca25f",
-                "#fc4e2a",
-                "#004529",
-                "#e7298a",
-                "#C5D86D",
-                "#4F6D7A"
+               "#f20089",
+                "#fb8500",
+                "#ffb703",
+                "#fba09d",
+                "#219ebc",
+                "#d08c60",
+                "#023047"
               ]
             }
         },

@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Global Happiness: Log GDP Per Capita",
   "width": 800,
   "height": 400,
   "projection": {"type": "equalEarth"},
@@ -22,33 +21,23 @@
         "input": "select",
         "options": [
           null,
-          "North America and ANZ",
-          "Latin America and Caribbean",
-          "Central and Eastern Europe",
-          "Western Europe",
-          "Middle East and North Africa",
-          "Eastern Mediterranean",
-          "Commonwealth of Independent States",
-          "Sub-Saharan Africa",
-          "East Asia",
-          "Southeast Asia",
-          "South Asia",
-          "West Asia"
+          "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania",
+            "Middle East"
         ],
         "labels": [
           "Show All",
-          "North America and ANZ",
-          "Latin America and Caribbean",
-          "Central and Eastern Europe",
-          "Western Europe",
-          "Middle East and North Africa",
-          "Eastern Mediterranean",
-          "Commonwealth of Independent States",
-          "Sub-Saharan Africa",
-          "East Asia",
-          "Southeast Asia",
-          "South Asia",
-          "West Asia"
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania",
+          "Middle East"
         ],
         "name": "Region Selection"
       }
@@ -65,7 +54,7 @@
           "lookup": "properties.NAME",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/2022_World_Happiness_Report.csv"
+              "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"
             },
             "key": "Country_Name",
             "fields": ["Log_GDP_Per_Capita", "Regional_Indicator"]
