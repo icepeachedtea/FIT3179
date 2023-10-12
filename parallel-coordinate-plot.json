@@ -141,22 +141,26 @@
           {
             "type": "quantitative",
             "field": "Healthy_Life_Expectancy_At_Birth",
-            "title": "Healthy Life Expectancy"
+            "title": "Healthy Life Expectancy",
+            "format": ".3f"
           }, 
           {
             "type": "quantitative",
             "field": "Life_Ladder",
-            "title": "Life Ladder"
+            "title": "Life Ladder",
+            "format": ".3f"
           }, 
           {
             "type": "quantitative",
             "field": "Perceptions_Of_Corruption",
-            "title": "Perceptions of Corruption"
+            "title": "Perceptions of Corruption",
+            "format": ".3f"
           }, 
           {
             "type": "quantitative",
             "field": "Social_Support",
-            "title": "Social Support"
+            "title": "Social Support",
+            "format": ".3f"
           }
         ]
       }
