@@ -22,12 +22,12 @@
         "options": [
           null,
           "North America",
-            "South America",
-            "Europe",
-            "Africa",
-            "Asia",
-            "Oceania",
-            "Middle East"
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania",
+          "Middle East"
         ],
         "labels": [
           "Show All",
@@ -57,7 +57,7 @@
               "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"
             },
             "key": "Country_Name",
-            "fields": ["Log_GDP_Per_Capita", "Regional_Indicator"]
+            "fields": ["Log_GDP_Per_Capita", "Continent"]
           },
           "default": "0"
         },
@@ -65,7 +65,7 @@
   
         {"filter": "datum.Log_GDP_Per_Capita >= Log_GDP_Per_Capita_above"},
 
-        {"filter": "Region_selection == null || datum.Regional_Indicator == Region_selection"}
+        {"filter": "Region_selection == null || datum.Continent == Region_selection"}
       ],
       "mark": {"type": "geoshape", "stroke": "black", "strokeWidth": 0.4},
       "encoding": {
