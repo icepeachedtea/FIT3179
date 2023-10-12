@@ -1,0 +1,64 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "transform": [
+      {"calculate": "datum.Life_Ladder", "as": "Life Ladder"},
+      {"calculate": "datum.Perceptions_Of_Corruption", "as": "Perceptions Of Corruption"},
+      {"calculate": "datum.Freedom_To_Make_Life_Choices", "as": "Freedom To Make Life Choices"}
+    ],
+    "repeat": {
+      "row": [
+        "Life Ladder", "Perceptions Of Corruption", "Freedom To Make Life Choices"
+      ],
+      "column": [
+        "Freedom To Make Life Choices", "Perceptions Of Corruption", "Life Ladder"
+      ]
+    },
+     "spec": {
+      "data": {"url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"},
+      "mark": "point",
+      "params": [
+        {
+          "name": "brush",
+          "select": {
+            "type": "interval",
+            "resolve": "union",
+            "on": "[mousedown[event.shiftKey], window:mouseup] > window:mousemove!",
+            "translate": "[mousedown[event.shiftKey], window:mouseup] > window:mousemove!",
+            "zoom": "wheel![event.shiftKey]"
+          }
+        },
+        {
+          "name": "grid",
+          "select": {
+            "type": "interval",
+            "resolve": "global",
+            "translate": "[mousedown[!event.shiftKey], window:mouseup] > window:mousemove!",
+            "zoom": "wheel![!event.shiftKey]"
+          },
+          "bind": "scales"
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": {"repeat": "column"}, 
+          "type": "quantitative"
+        },
+        "y": {
+          "field": {"repeat": "row"},
+          "type": "quantitative",
+          "axis": {"minExtent": 30}
+        },
+        "color": {
+          "condition": {
+            "param": "brush",
+            "field": "Continent",
+            "title": "Region",
+            "type": "nominal"
+          },
+          "value": "grey"
+        }
+      }
+    }
+  }
+  
+   
