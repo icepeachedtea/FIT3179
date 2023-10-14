@@ -1,7 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 700,
+  "width": "container",
   "height": 500,
+  "background": null,
   "data": {
     "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"
   },
@@ -111,7 +112,7 @@
             },
             "value": 0.6
           },
-          "value": 0.2
+          "value": 0.1
         },
         "tooltip": [
           {"field": "Country_Name", "type": "nominal", "title": "Country"},

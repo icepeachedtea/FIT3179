@@ -16,7 +16,7 @@
   <!-- Google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
@@ -31,89 +31,158 @@
     <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h1>World Happiness Report (2022)</h1>
-        <p>The World Happiness Report is a publication of the Sustainable Development Solutions Network, 
-          powered by the Gallup World Poll data. 
-          The World Happiness Report reflects a worldwide demand for more attention to happiness and well-being as criteria for government policy. 
-          It reviews the state of happiness in the world today and shows how the science of happiness explains personal and national variations in happiness.</p>
+        <h1>Happiness Makes The World Go Round: <br>2022 World Happiness Report</h1>
+        <p>The World Happiness Report is a publication of the Sustainable Development Solutions Network, powered by the Gallup World Poll data. It evaluates the happiness and well-being of people across nations, considering factors like income, social support, life expectancy, freedom, trust, and generosity. It serves as a response to the growing interest in happiness as a policy metric, providing insights into global happiness and explaining variations in personal and national well-being.
+      
+      <br>
+      <br>
+      Social support, perceptions of corruption and freedom to make life choices are attributes ranging from 0 to 1, and represent the national average of binary responses to specific questions asked in the Gallup World Poll indicative of these attributes.
+      Life ladder is an attribute representing self-reported life satisfaction ranging from 0 to 10.
+      </p>
       </div>
     </div>
     <!-- end pure grid group -->
 
+    <hr>
+
     <!-- pure grid group -->
-    <div class="pure-g">
+    <div class="pure-g container">
       <div class="pure-u-1-1">
-        <h2>Bubble Plot showing World Happiness</h2>
+        <h2>Social Support, Freedom and GDP Around The World</h2>
       </div>
       <div class="pure-u-1-1">
         <div id="vis1" class="vis-container"></div>
-      </div>
       <div class="pure-u-1-1">
-        <p> This bubble plot showcases multiple attributes. 
-          Position channel is used to encode quantitative attributes like social support and freedom to make life choices. 
-          Size channel is used to encode log GDP per capita and colour hue channel is used to encode region.
-          Social support and freedom to make life choices are attributes ranging from 0 to 1.
-          The closer the value is to 1, the higher social support and/or freedom people have.
-          By examining the bubble plot, viewers can quickly discern patterns and relationships between these four dimensions of data. 
-          For example, they can identify regions where both social support and freedom are high (bubbles clustered in the upper-right corner of the plot).
+        <p> This bubble plot showcases several key attributes that contribute to the well-being of people worldwide, such as social support, the freedom to make life choices, and log GDP per capita. Each bubble represents a country, colour coded by their region. 
+
+        Evidently, <b>Afghanistan</b> ranks lowest in terms of both social support and freedom to make life choices. <b>Developed Western countries</b> like Denmark and Australia rank highly in both attributes, suggesting a higher level of happiness. Meanwhile, countries like Bangladesh have high freedom but comparatively lower social support. 
+        <br>
+        <br>
+        <i>Click on any region to filter and see a specific region. 
+          <br>Enter the name of a country you want to focus on in the search bar to view that country's data exclusively.
+          <br>Use the slider to filter countries by their log GDP per capita.
+        </i>
         </p>
       </div>
     </div>
     <!-- end pure grid group -->
 
+    <hr>
+
     <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h2>Choropleth Map showing World Happiness by GDP Per Capita</h2>
+        <h2>Mapping Global Log GDP Per Capita </h2>
       </div>
       <div class="pure-u-1-1">
         <div id="vis2" class="vis-container"></div>
       </div>
       <div class="pure-u-1-1">
         <p>GDP per capita is often used as a measure to determine happiness. 
-          The higher the GDP per capita, the happier people in that country tend to be, and vice versa. 
-          From the visualisation, it is evident that people living in higher income countries such as United States, Australia, and European countries
-          report higher GDP per capita, suggesting they experience higher levels of happiness. 
+          <b>Economic prosperity</b>, as reflected in the form of GDP per capita, can translate into improved living standards, access to essential services, and opportunities for personal and social growth. Consequently, this can contribute to an <b>enhanced overall sense of happiness and well-being</b> among the population. A lower GDP per capita usually suggests a lower level of happiness. It is evident that people living in <b>higher income countries</b> such as United States, Australia, and European countries report higher GDP per capita, suggesting they experience <b>higher levels of happiness</b>. 
+
+          Countries without data are shown to have a log GDP per capita of 0. 
+        <br>
+        <br>
+        <i>Use the slider to filter countries by their log GDP per capita.
+          <br>Select the region you want to focus on in the dropdown to view that region's data exclusively.
+        </i>
         </p>
       </div>
     </div>
     <!-- end pure grid group -->
 
+    <hr>
+
     <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h2>Parallel Coordinate Plot</h2>
+        <h2>Comparing Life Expectancy, Support, Corruption, and Satisfaction</h2>
       </div>
       <div class="pure-u-1-1">
         <div id="vis3" class="vis-container"></div>
       </div>
       <div class="pure-u-1-1">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit pharetra cursus. Maecenas posuere elementum imperdiet. Fusce mattis varius gravida. In commodo iaculis neque, nec vehicula justo mattis id. Quisque ut ex turpis. Donec at pulvinar ipsum, eget convallis dui. Donec ornare efficitur euismod. Curabitur nec orci commodo, faucibus eros eu, ornare nisi. Proin eu egestas massa. Vestibulum vel dolor ante. Morbi sollicitudin iaculis ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Morbi sed consectetur diam, vitae feugiat mauris. Aenean elementum condimentum leo suscipit sollicitudin. Donec elementum tellus viverra erat congue tempor. Duis aliquam nulla et enim iaculis, sit amet porttitor erat dignissim. Etiam eu laoreet augue. Praesent gravida varius ullamcorper.
+          This parallel coordinate plot shows the relationships between several attributes: healthy life expectancy at birth, social support, perceptions of corruption and an individual's life satisfaction (life ladder). It can be seen that <b>North and South America</b> have relatively higher values throughout all attributes in contrast to regions like Africa. <b>Asia and Middle East</b> also see large variations in each of the attributes, suggesting the <b>difference in happiness levels</b> among Asian countries.
+          <br>
+          <br>
+          <i>Enter the name of a country you want to focus on in the search bar to view that country's data exclusively.
+            <br>
+            Click on any region to filter and see a specific region. 
+          </i>
         </p>
       </div>
     </div>
     <!-- end pure grid group -->
 
+    <hr>
+
      <!-- pure grid group -->
      <div class="pure-g">
       <div class="pure-u-1-1">
-        <h2>Spine Chart</h2>
+        <h2>Global Generosity</h2>
       </div>
       <div class="pure-u-1-1">
         <div id="vis4" class="vis-container"></div>
       </div>
       <div class="pure-u-1-1">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit pharetra cursus. Maecenas posuere elementum imperdiet. Fusce mattis varius gravida. In commodo iaculis neque, nec vehicula justo mattis id. Quisque ut ex turpis. Donec at pulvinar ipsum, eget convallis dui. Donec ornare efficitur euismod. Curabitur nec orci commodo, faucibus eros eu, ornare nisi. Proin eu egestas massa. Vestibulum vel dolor ante. Morbi sollicitudin iaculis ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Morbi sed consectetur diam, vitae feugiat mauris. Aenean elementum condimentum leo suscipit sollicitudin. Donec elementum tellus viverra erat congue tempor. Duis aliquam nulla et enim iaculis, sit amet porttitor erat dignissim. Etiam eu laoreet augue. Praesent gravida varius ullamcorper.
+          This spine chart displays generosity levels by region. 
+          Generosity is the residual of regressing the national average of poll responses to the donation question “Have you donated money to a charity in the past month?” on log GDP per capita.
+          It is clear that <b>South America is the only region with negative generosity levels</b>, with <b>Oceania</b> having the <b>highest generosity levels</b>. The Middle East, in contrast, hovers around a generosity level close to 0, indicating that there might be a possibility in the near future for generosity levels to dip into the negative.
+
+          <br>
+          <br>
+
+          <i>Hover over each bar to see the level of generosity rounded to 4 decimal places.</i>
         </p>
       </div>
     </div>
     <!-- end pure grid group -->
 
+    <hr>
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h2>Analysing Corruption, Freedom and Life Satisfaction </h2>
+      </div>
+      <div class="pure-u-1-1">
+        <div id="vis5" class="vis-container splom"></div>
+      </div>
+      <div class="pure-u-1-1">
+        <p>
+          This scatterplot matrix shows the relationships between perceptions of corruption, freedom to make life choices and life satisfaction (life ladder). Greater freedom to make life choices is associated with a <b>higher life ladder value</b>. However, the relationships between freedom to make life choices and life ladder with corruption perceptions are <b>unclear albeit showing vague negative correlations</b>.
+
+          <br>
+          <br>
+          <i>
+            Click on any region to filter and see a specific region in the scatterplot matrices.
+            <br>
+            Scroll over any plot to collectively zoom into the details of each plot.
+          </i>
+
+        </p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <hr>
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h2>Always Remember...</h2>
+        <img src="./quote.png" alt="">
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
-        <p>This visualisation is created by <a href="https://github.com/icepeachedtea" target="_blank">Ashley Tee</a>. The datasource is <a href="https://www.kaggle.com/datasets/usamabuttar/world-happiness-report-2005-present" target=" _blank"> World Happiness Report, 2005-Present by Usama Buttar</href>.</p>
+        <p>This visualisation is created by <a href="https://github.com/icepeachedtea" target="_blank">Ashley Tee</a>. </p>
       </div>
     </div>
 
@@ -124,6 +193,7 @@
     var specVis2 = "./choropleth-map-gdp.json";
     var specVis3 = "./parallel-coordinate-plot.json";
     var specVis4 = "./spine-chart-interactive.json";
+    var specVis5 = "./splom-interactive.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -136,6 +206,10 @@
     }).catch(console.error);
 
     vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>

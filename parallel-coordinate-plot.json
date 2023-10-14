@@ -1,9 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background": null,
     "data": {
       "url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"
     },
-    "width": 700,
+    "width": "container",
     "height": 300,
     "params": [
       {
@@ -81,26 +82,32 @@
         ],
       "mark": "line",
       "encoding": {
-        "color": {"type": "nominal", "field": "Continent", "title": "Region",
-        "scale": {
-              "domain": [
-               "North America",
-                "South America",
-                "Europe",
-                "Africa",
-                "Asia",
-                "Oceania",
-                "Middle East"
-              ],
-              "range": [
-               "#f20089",
-                "#fb8500",
-                "#ffb703",
-                "#fba09d",
-                "#219ebc",
-                "#d08c60",
-                "#023047"
-              ]
+        "color": {
+            "type": "nominal", 
+            "field": "Continent", 
+            "title": "Region",
+            "scale": {
+                "domain": [
+                    "North America",
+                    "South America",
+                    "Europe",
+                    "Africa",
+                    "Asia",
+                    "Oceania",
+                    "Middle East"
+                ],
+                "range": [
+                    "#f20089",
+                    "#fb8500",
+                    "#ffb703",
+                    "#fba09d",
+                    "#219ebc",
+                    "#d08c60",
+                    "#023047"
+                ]
+            },
+            "legend": {
+                "orient": "top-right"
             }
         },
         "detail": {"type": "nominal", "field": "index"},
@@ -114,7 +121,7 @@
             },
             "value": 0.5
           },
-          "value": 0.1},
+          "value": 0.05},
         "x": {"type": "nominal", "field": "key"},
         "y": {
           "type": "quantitative", 

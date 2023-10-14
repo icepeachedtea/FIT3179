@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background": null,
     "transform": [
       {"calculate": "datum.Life_Ladder", "as": "Life Ladder"},
       {"calculate": "datum.Perceptions_Of_Corruption", "as": "Perceptions Of Corruption"},
@@ -17,6 +18,14 @@
       "data": {"url": "https://raw.githubusercontent.com/icepeachedtea/FIT3179/main/data/(NEW)2022_World_Happiness_Report.csv"},
       "mark": "point",
       "params": [
+        {
+          "name": "continent_highlight",
+          "select": {
+            "type": "point",
+            "fields": ["Continent"]
+          },
+          "bind": "legend"
+        },
         {
           "name": "brush",
           "select": {
@@ -53,9 +62,39 @@
             "param": "brush",
             "field": "Continent",
             "title": "Region",
-            "type": "nominal"
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "North America",
+                "South America",
+                "Europe",
+                "Africa",
+                "Asia",
+                "Oceania",
+                "Middle East"
+              ],
+              "range": [
+                "#f20089",
+                "#fb8500",
+                "#ffb703",
+                "#fba09d",
+                "#219ebc",
+                "#d08c60",
+                "#023047"
+              ]
+            },
+            "legend": {
+              "title": "Continent"
+            }
+          }
+        },
+  
+        "opacity": {
+          "condition": {
+            "param": "continent_highlight", 
+            "value": 0.6
           },
-          "value": "grey"
+        "value": 0
         }
       }
     }
